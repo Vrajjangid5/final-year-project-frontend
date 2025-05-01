@@ -24,14 +24,9 @@ https://reactjs-ecommerce-app.vercel.app/
 Clone the project
 
 ```bash
-  git clone https://github.com/ssahibsingh/React_E-Commerce
+https://github.com/Vrajjangid5/final-year-project-frontend.git
 ```
 
-Go to the project directory
-
-```bash
-  cd React_E-Commerce
-```
 
 Install dependencies
 
