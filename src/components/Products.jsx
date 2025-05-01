@@ -7,9 +7,10 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import useDataStore from "../DataStore/DataStore";
 
 const Products = () => {
-  const [data, setData] = useState([]);
+  const {data, setData} = useDataStore();
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
   let componentMounted = true;
@@ -38,6 +39,9 @@ const Products = () => {
     getProducts();
   }, []);
 
+  useEffect(()=>{
+    setFilter(data)
+  },[data])
   const Loading = () => {
     return (
       <>
@@ -67,7 +71,7 @@ const Products = () => {
   };
 
   const filterProduct = (cat) => {
-    const updatedList = data.filter((item) => item.category === cat);
+    const updatedList = data?.filter((item) => item.category === cat);
     setFilter(updatedList);
   };
 
@@ -107,7 +111,7 @@ const Products = () => {
           </button>
         </div>
 
-        {filter.map((product) => {
+        {filter?.map((product) => {
           return (
             <div
               id={product.id}
